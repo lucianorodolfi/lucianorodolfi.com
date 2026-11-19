@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Luciano Rodolfi</title>
+<link rel="preload" href="fonts/FluxischElse-Bold.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="scene"></div>
+
+<!--
+  IMPOSTAZIONI DELLA SCENA (gli stessi valori del pannello di Framer).
+  Cambia un numero, salva, ricarica la pagina.
+-->
+<script>
+window.SCENE = {
+  materialSource: { src: "images/material.png", alt: "Pole source material" },
+  flyerWidth: 600,        // Flyer W
+  flyerHeight: 846,       // Flyer H
+  flyerTop: 85,           // Flyer Top
+  flyerMaxHeight: 85,     // Flyer Max H
+  poleWidth: 386,         // Pole W
+  perspective: 2200,      // Perspective
+  duration: 1.15,         // Duration (secondi)
+  initialSide: "Front",   // "Front" o "Back"
+  textureResolution: 256, // Texture Res
+  facetCount: 8,          // Facets
+  reverseTilt: 0,         // Reverse Tilt
+  backOffsetX: 26,        // Back X
+  backOffsetY: -106,      // Back Y
+  backScale: 1,           // Back Scale
+  backWidth: 388,         // Back W
+  backHeight: 625,        // Back H
+
+  // Telefono (schermi fino a 809.98 px, come il breakpoint Phone di Framer)
+  phoneMaxWidth: 809.98,
+  phone: {
+    poleWidth: 315
+  }
+};
+</script>
+
+<!-- FRONTE: il volantino A4 -->
+<template id="front-flyer">
+<div class="flyer">
+  <div class="flyer-page">
+    <div class="flyer-top">
+      <div class="flyer-text" lang="en">
+        <p dir="auto" class="justify">My name is Luciano Rodolfi, a visual designer in a romantic relationship with animation, and in a fairly serious one with paper, scanners, printing, archives and all the things that tend to happen before a project becomes clean. I like experimenting, collecting, scanning, printing, moving things around and occasionally making the process unnecessarily complicated just to see what happens. I studied Visual &amp; Graphic Design at Raffles Milano, graduating in 2025. During my studies, my interest in animation became less about simply making things move and more about understanding what movement can communicate, teach or make us notice, culminating in my thesis project KCC.</p>
+        <p dir="auto"><br></p>
+        <p dir="auto">Tel: <strong>+</strong>39 3669548703</p>
+        <p dir="auto">Email: lucianorodolfi.mail@gmail.com</p>
+        <p dir="auto">Language: Italian &amp; English</p>
+      </div>
+      <div class="flyer-spacer"></div>
+    </div>
+  </div>
+  <!-- Linguette da strappare: numero, link e scritta -->
+  <div class="tabs"
+       data-count="9"
+       data-href="https://drive.google.com/uc?export=download&amp;id=1HR_q92ZhIl0yA0E24x5BV3axJQGA44U1"
+       data-label="Portfolio.pdf"></div>
+</div>
+</template>
+
+<!-- RETRO: la pagina A5 con la stella -->
+<template id="back-page">
+<div class="back">
+  <div class="back-logo"
+       data-bouncing-logo
+       data-src="images/star.svg"
+       data-alt=""
+       data-label="Click the star"
+       data-width="171"
+       data-speed="158"
+       data-href="https://www.youtube.com/@lucianorodolfi/videos"
+       data-new-tab="true"></div>
+  <div class="back-text" lang="en">
+    <p dir="auto">Welcome to my own personal Odeon: tonight’s programme proudly features a collection of peculiar moving pictures and a few other things that probably weren’t supposed to move at all.</p>
+  </div>
+</div>
+</template>
+
+<script src="app.js"></script>
+</body>
+</html>

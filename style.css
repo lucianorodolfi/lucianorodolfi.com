@@ -1,0 +1,304 @@
+/* ------------------------------------------------------------------ */
+/* Font                                                                */
+/* ------------------------------------------------------------------ */
+
+@font-face {
+    font-family: "Fluxisch Else Bold";
+    src: url("fonts/FluxischElse-Bold.woff") format("woff");
+    font-display: swap;
+    font-style: normal;
+    font-weight: 700;
+}
+
+/* Stand-in shown for a moment while the real font loads, sized like it
+   (the same values Framer uses). */
+@font-face {
+    font-family: "Fluxisch Else Bold Placeholder";
+    src: local("Arial");
+    ascent-override: 93.2%;
+    descent-override: 20.09%;
+    line-gap-override: 8.82%;
+    size-adjust: 102.04%;
+}
+
+/* ------------------------------------------------------------------ */
+/* Page: one screen, black around it                                   */
+/* ------------------------------------------------------------------ */
+
+html,
+body,
+#scene {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    -webkit-font-smoothing: antialiased;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure {
+    margin: 0;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+html,
+body {
+    overscroll-behavior: none;
+    background: #000;
+}
+
+#scene {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* ------------------------------------------------------------------ */
+/* Front: A4 flyer (600 x 846)                                         */
+/* ------------------------------------------------------------------ */
+
+.flyer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 846px;
+    color: #000;
+}
+
+/* White part with the text, dotted line at the bottom */
+.flyer-page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 0 0 auto;
+    width: 600px;
+    height: 529px;
+    background-color: #fff;
+}
+
+.flyer-page::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-bottom: 2px dotted #000;
+    border-radius: inherit;
+    pointer-events: none;
+    box-sizing: border-box;
+}
+
+.flyer-top {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 7px;
+    flex: 0 0 auto;
+    width: 600px;
+    height: 271px;
+    padding: 10px 10px 20px;
+    overflow: hidden;
+    overflow: clip;
+}
+
+.flyer-text {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 0 0 auto;
+    width: 580px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.flyer-text p {
+    font-family: "Fluxisch Else Bold", "Fluxisch Else Bold Placeholder", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0;
+    text-align: start;
+    color: #000;
+}
+
+.flyer-text p.justify {
+    text-align: justify;
+}
+
+.flyer-text strong {
+    font-weight: 900;
+}
+
+.flyer-spacer {
+    position: relative;
+    flex: 1 0 0px;
+    width: 580px;
+    height: 1px;
+    background-color: #fff;
+    overflow: hidden;
+    overflow: clip;
+}
+
+/* ------------------------------------------------------------------ */
+/* Tear-off tabs                                                       */
+/* ------------------------------------------------------------------ */
+
+.tabs {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 auto;
+    width: 600px;
+    height: 317px;
+}
+
+.tab-slot {
+    position: relative;
+    flex: 1 0 0px;
+    width: 1px;
+    height: 100%;
+}
+
+.tab {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.tab[data-state] {
+    cursor: unset;
+}
+
+.tab-body {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #fff;
+}
+
+.tab-body::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-left: 1px solid #000;
+    border-radius: inherit;
+    pointer-events: none;
+    box-sizing: border-box;
+}
+
+.tab-label {
+    position: relative;
+    flex: 0 0 auto;
+    transform: rotate(90deg);
+    white-space: pre;
+}
+
+.tab-label p {
+    font-family: "Fluxisch Else Bold", "Fluxisch Else Bold Placeholder", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 0.8em;
+    letter-spacing: 0;
+    color: #000;
+    white-space: pre;
+    -webkit-hyphens: manual;
+    hyphens: manual;
+}
+
+/* ------------------------------------------------------------------ */
+/* Back: A5 page (335 x 475) with the bouncing star                    */
+/* ------------------------------------------------------------------ */
+
+.back {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 335px;
+    height: 475px;
+    background-color: #fff;
+    overflow: hidden;
+    overflow: clip;
+}
+
+.back-logo {
+    position: relative;
+    flex: 0 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+.back-text {
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    bottom: 7px;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 0 0 auto;
+    white-space: pre-wrap;
+    word-break: normal;
+    overflow-wrap: normal;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.back-text p {
+    font-family: "Times New Roman", Times, serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 17px;
+    letter-spacing: 0;
+    text-align: justify;
+    color: #181cef;
+}
